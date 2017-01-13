@@ -5,9 +5,8 @@ export async function query() {
 }
 
 export function rate(id, value) {
-  console.log(JSON.stringify(value))
   return request(`/api/gallery/${id}`, {
     method: 'PATCH',
-    body: JSON.stringify(value)
+    body: JSON.stringify(value),
   });
 }

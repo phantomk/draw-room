@@ -3,13 +3,11 @@ import { connect } from 'dva'
 import { Card, Rate, Col, Row } from 'antd'
 import styles from './GalleryList.css'
 
-const GalleryList = ({dispatch, data}) => {
-  console.log(location)
+const GalleryList = ({ dispatch, data }) => {
   function rateHandler(id, value) {
-    console.log({id, value})
     dispatch({
       type: 'gallery/rate',
-      payload: {id, value}
+      payload: { id, value },
     })
   }
 
@@ -23,7 +21,11 @@ const GalleryList = ({dispatch, data}) => {
                 <div className="custom-image">
                   <img alt="draw" width="100%" src={data.url} />
                 </div>
-                <Rate allowHalf defaultValue={data.rateValue} onChange={rateHandler.bind(null, data.id)} />
+                <Rate
+                  allowHalf
+                  defaultValue={data.rateValue}
+                  onChange={rateHandler.bind(null, data.id)}
+                />
                 <p>已有{data.rateCount}人评分</p>
               </Card>
             </Col>
@@ -36,8 +38,7 @@ const GalleryList = ({dispatch, data}) => {
 
 function mapStateToProps(state) {
   // get state.urls
-  const  { data }   = state.gallery
-  console.log(state.gallry)
+  const { data } = state.gallery
   return { data }
 }
 

@@ -11,12 +11,11 @@ import Layout from '../components/Layout/Layout'
 import styles from './Gallery.css'
 
 const Gallery = () => {
-
   return (
-   <div className={styles.normal}>
-    <Layout />
-    <GalleryList />
-   </div>
+    <div className={styles.normal}>
+      <Layout />
+      <GalleryList />
+    </div>
   )
 }
 

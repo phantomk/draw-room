@@ -6,15 +6,15 @@ export default {
   namespace: 'gallery',
 
   state: {
-    data: []
+    data: [],
   },
 
   subscriptions: {
     setup({ dispatch, history }) {
-      history.listen(location => {
-        if (location.pathname == '/') {
+      history.listen((location) => {
+        if (location.pathname === '/') {
           dispatch({
-            type: 'fetchRemote'
+            type: 'fetchRemote',
           })
         }
       })
@@ -22,22 +22,22 @@ export default {
   },
 
   effects: {
-    *fetchRemote({ payload }, { call, put }) {
+    * fetchRemote({ payload }, { call, put }) {
       const { data } = yield call(galleryServies.query)
       if (data) {
         yield put({
           type: 'fetch',
-          data: data.data
+          data: data.data,
         })
       }
     },
-    *rate({ payload: {id, value} }, { call, put }){
+    * rate({ payload: { id, value } }, { call, put }) {
       const { data } = yield call(galleryServies.rate, id, value)
       yield put({
         type: 'upRate',
-        data: data.data 
+        data: data.data,
       })
-    }
+    },
   },
 
   reducers: {
@@ -46,7 +46,7 @@ export default {
     },
     upRate(state, payload) {
       return { ...state, ...payload };
-    }
+    },
   },
 
 }
