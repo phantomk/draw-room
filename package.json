@@ -1,4 +1,6 @@
 {
+  "name": "i-love-draw",
+  "version": "0.0.1",
   "private": true,
   "entry": {
     "index": "./src/index.js"
